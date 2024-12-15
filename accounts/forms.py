@@ -1,8 +1,23 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from accounts.models import CustomUser
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+
+from accounts.models import User
+
+
+class UserLoginForm(AuthenticationForm):
+    username = forms.EmailField(widget=forms.EmailInput(attrs={'class': 'form-control'}))
+
 
 class UserRegistrationForm(UserCreationForm):
+    email = forms.EmailField(required=True)
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.filter(email=email).exists():
+            raise forms.ValidationError('Email already registered')
+        return email
+
     class Meta:
-        model = CustomUser
-        fields = ['email', 'phone_number', 'username']
+        model = User
+        fields = ['username', 'email']
+
