@@ -1,0 +1,141 @@
+.container {
+    max-width: 800px;
+    margin: 100px auto; /* Offset for navbar */
+    padding: 20px;
+}
+
+/* Card Section */
+.card {
+    background: #232526;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    position: relative;
+    text-align: center;
+}
+
+.card-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    margin: 10px 0;
+}
+
+.card p.body {
+    margin: 15px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.btn.toggle-comments {
+    background-color: #f39c12;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn.toggle-comments:hover {
+    background-color: #e67e22;
+}
+
+/* Comment Write Section */
+.comment-write-section {
+    background: #232526;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: #fff;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.comment-write-section textarea {
+    width: 100%;
+    height: 100px; /* Set the height of the comment area */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    background: #2c2c2c;
+    color: #fff;
+}
+
+.comment-write-section .btn-submit {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.comment-write-section .btn-submit:hover {
+    background-color: #2980b9;
+}
+
+/* Comments Section */
+.comments-section {
+    background: #151515;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: #fff;
+    margin-top: 20px;
+}
+
+.comments-section.hidden {
+    display: none;
+}
+
+.comments-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.comments-section li {
+    margin-bottom: 15px;
+}
+
+.comments-section li p {
+    margin: 0;
+}
+
+.comments-section li small {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+        margin: 20px;
+        padding: 10px;
+    }
+    .card {
+        padding: 15px;
+    }
+    .card-img {
+        max-height: 200px; /* Mobil uchun rasmning o'lchamini kichraytirish */
+    }
+    .comments-section {
+        padding: 15px;
+    }
+    .comment-write-section {
+        padding: 15px;
+    }
+    .comment-write-section textarea {
+        padding: 8px;
+    }
+}

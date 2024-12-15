@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%  load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'css/blog_list.css' %}">
+    <section class="book-list">
+        {% for article in articles %}
+            <div class="book-card">
+                <div class="book-image">
+                    {% if article.image %}
+                        <a href="{% url 'blog_detail' article.pk %}">
+                            <img src="{{ article.image.url }}" alt="Book Cover">
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="book-info">
+                    <h2 class="title">{{ article.title }}</h2>
+                    <p class="tag">{{ article.category }}</p>
+                    <p class="author">By-{{ article.author }}</p>
+                    <div class="book-meta">
+                        <span class="year">{{ article.created_at.date }}</span>
+                        <span class="read-time"><i class="fa fa-comments"></i> {{ article.total_comments }}</span>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock  %}

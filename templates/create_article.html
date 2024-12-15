@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/create_article.css' %}">
+
+<div class="container mt-5">
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white text-center">
+            <h2>Post joylash</h2>
+        </div>
+        <div class="card-body">
+            <form method="POST" enctype="multipart/form-data" class="p-3">
+                {% csrf_token %}
+                {{ article_form.as_p }}
+                <button type="submit" class="btn btn-primary w-100 mt-3">Jo'natish</button>
+                <a href="{% url 'blog_list' %}" class="btn w-100 mt-3">Bekor qilish</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

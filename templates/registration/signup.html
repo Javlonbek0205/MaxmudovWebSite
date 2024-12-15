@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    <form method="post">
+        {% csrf_token %}
+        <h3></h3>
+
+        <label for="id_email">Email</label>
+        <input type="email" name="email" id="id_email" placeholder="Email">
+
+        <label for="id_phone_number">Phone Number</label>
+        <input type="text" name="phone_number" id="id_phone_number" placeholder="Phone Number">
+
+        <label for="id_username">Username</label>
+        <input type="text" name="username" id="id_username" placeholder="Username">
+
+        <label for="id_password1">Password</label>
+        <input type="password" name="password1" id="id_password1" placeholder="Password">
+
+        <label for="id_password2">Confirm Password</label>
+        <input type="password" name="password2" id="id_password2" placeholder="Confirm Password">
+
+        <button type="submit">Follow</button>
+
+        <!-- Back va Login tugmalari -->
+        <div class="links">
+            <a href="{% url 'home' %}"><i class="fas fa-arrow-left"></i> Back</a>
+            <a href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Login</a>
+        </div>
+    </form>
+</body>
+</html>
+
+

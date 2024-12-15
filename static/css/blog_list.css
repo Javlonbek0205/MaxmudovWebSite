@@ -1,0 +1,122 @@
+/* Container styling */
+.book-card {
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+    margin: 40px auto; /* Yuqori va pastki bo'shliqni kattalashtirdik */
+    border: 1px solid #3a3d42; /* To'q kulrang chegaralar */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Soyani kuchaytirdik */
+    background: linear-gradient(to bottom, #232526, #3a3d42); /* Gradient fon */
+    color: #eee; /* Oq matn */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: scale(1.08); /* Hover effekti */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Hover paytidagi soya */
+}
+
+/* Book Image */
+.book-image img {
+    width: 100%; /* Rasm eni karta o'lchamiga mos */
+    height: 230px; /* Barcha rasmlarning balandligi bir xil */
+    object-fit: cover; /* Rasmni kesmasdan o'lchamga moslashtirish */
+    border-bottom: 2px solid #f39c12; /* Tagida oltin chiziq */
+}
+
+/* Text Content */
+.book-info {
+    padding: 20px;
+    text-align: center; /* Matnni markazga joylash */
+}
+
+.tag {
+    color: #fff;
+    background: #e67e22; /* To'q oltin fon */
+    padding: 6px 12px;
+    font-size: 13px;
+    border-radius: 20px;
+    text-align: center;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.title {
+    font-size: 20px;
+    color: #f39c12; /* Oltin rang matn */
+    margin: 12px 0;
+    transition: color 0.3s;
+}
+
+.title:hover {
+    color: #e67e22; /* Hover paytida to'q oltin */
+    cursor: pointer;
+}
+
+.author {
+    font-size: 15px;
+    color: #bbb; /* Oqish kulrang */
+    margin-bottom: 15px;
+}
+
+/* Meta Info */
+.book-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.year,
+.read-time {
+    background: linear-gradient(to right, #3a3d42, #232526); /* Gradient fon */
+    padding: 5px 10px;
+    border-radius: 8px;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsiveness */
+.book-list {
+    padding: 20px;
+    margin-top: 80px; /* Navigatsiyadan masofani oshirdik */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Standart 4 ustun */
+    gap: 20px; /* Kartalar orasidagi masofa */
+}
+
+/* Grid tizim uchun media queries */
+
+/* Kichik ekranlar (telefonlar) */
+@media (max-width: 575px) {
+    .book-list {
+        grid-template-columns: 1fr; /* Bitta ustun */
+        gap: 15px;
+    }
+}
+
+/* O'rta ekranlar (planshetlar) */
+@media (min-width: 576px) and (max-width: 991px) {
+    .book-list {
+        grid-template-columns: repeat(2, 1fr); /* Ikki ustun */
+        gap: 20px;
+    }
+}
+
+/* Katta ekranlar (stol kompyuterlari) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .book-list {
+        grid-template-columns: repeat(3, 1fr); /* Uchta ustun */
+        gap: 25px;
+    }
+}
+
+/* Juda katta ekranlar (katta monitorlar) */
+@media (min-width: 1200px) {
+    .book-list {
+        grid-template-columns: repeat(4, 1fr); /* To'rtta ustun */
+        gap: 30px;
+    }
+}

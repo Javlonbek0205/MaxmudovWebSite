@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Login Form</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+  <div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <form method="post">
+    {% csrf_token %}
+    <h3>Login Here<br>Click <a href="{% url 'signup' %}">follow</a> to use additional features</h3>
+    {{ form.as_p }}
+    <button type="submit">Log In</button>
+    <div class="social">
+      <div class="back">
+        <a href="{% url 'home' %}">
+          <i class="fas fa-arrow-left"></i> Back
+        </a>
+      </div>
+      <div class="follow">
+        <a href="{% url 'signup' %}">
+          <i class="fas fa-user-plus"></i> Follow
+        </a>
+      </div>
+    </div>
+  </form>
+</body>
+</html>

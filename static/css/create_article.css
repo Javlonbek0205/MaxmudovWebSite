@@ -1,0 +1,98 @@
+/* Umumiy kontent o'lchamlari */
+.container {
+    max-width: 960px; /* Maximal kenglikni oshirish, navbar bilan mos kelishi uchun */
+    margin: 0 auto; /* Markazlashtirish */
+    padding: 0 15px;
+}
+
+/* Kartalar */
+.card {
+    max-width: 600px; /* Karta kengligi navbar bilan moslashadi */
+    margin: 20px auto; /* Karta markazlashtirilgan */
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Yumshoq soyalar */
+}
+
+.card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 1.5rem; /* Sarlavha kattaligini oshirish */
+    padding: 1rem;
+    background-color: #3498db; /* Yashil rangni ishlatish */
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Kartaning body qismi */
+.card-body {
+    padding: 20px;
+    width: 100%;
+}
+
+/* Formalar */
+form p {
+    margin-bottom: 1.5rem; /* Barcha formalar o'rtasidagi bo'shliqni oshirish */
+}
+
+form p label {
+    color: white;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+form p input,
+form p textarea,
+form p select {
+    width: 100%;
+    padding: 12px; /* Kengroq bo'shliq */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    font-size: 1.1rem; /* Kichik matnlar uchun kattaroq o'lcham */
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: border-color 0.3s ease;
+}
+
+form p input:focus,
+form p textarea:focus,
+form p select:focus {
+    border-color: rgba(255, 255, 255, 1);
+    outline: none;
+}
+
+/* Tugmalar */
+button {
+    background-color: #4CAF50;
+    border: none;
+    padding: 12px 20px; /* Tugma kattaligini oshirish */
+    color: white;
+    font-size: 1rem; /* Tugma matni kattaligi */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #388e3c;
+}
+
+/* Bekor qilish tugmasi */
+a.btn {
+    background: #a41515;
+    margin-top: 10px;
+    text-align: center;
+}
+
+a.btn:hover {
+    background: #8c0f0f;
+}

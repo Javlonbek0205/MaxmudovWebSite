@@ -1,0 +1,70 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(#151515, rgba(72, 72, 89, 0.62), #151515);
+    color: #eee;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fixed Navbar */
+.navbar {
+    background: linear-gradient(to right, #3a3d42, #232526);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    padding: 15px 30px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #f39c12;
+}
+
+.btn {
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+.follow-btn {
+    background-color: #f39c12;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.follow-btn:hover {
+    background-color: #e67e22;
+}
+
+.login-btn {
+    background-color: #3498db;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #2980b9;
+}
+
+.logout-btn {
+    background-color: #e61919;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.logout-btn:hover {
+    background-color: #b9292e;
+}
