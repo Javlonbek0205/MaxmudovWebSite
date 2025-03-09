@@ -1,67 +1,160 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<link rel="stylesheet" href="{% static 'css/portfolio_detail.css' %}">
+    {% block extra_style %}
+        <link rel="stylesheet" href="{% static 'css/portfolio_detail.css' %}">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    {% endblock %}
 
-<div class="container">
-    <!-- Portfolio Card Section -->
-    <div class="card">
-        <img src="{{ portfolio.image.url }}" alt="Portfolio Image" class="card-img">
-        <h2>{{ portfolio.title }}</h2>
-        <p class="body">{{ portfolio.description }}</p>
+    <div class="portfolio-container">
+        <div class="portfolio-header">
+            <h1>{{ portfolio.title }}</h1>
+        </div>
+        <div class="portfolio-content">
+            <!-- Gallery Section -->
+            <div class="portfolio-gallery">
+                <div class="thumbnails-wrapper">
+                    <div class="thumbnails">
+                        {% for image in portfolio_images %}
+                            <div class="thumbnail">
+                                <img src="{{ image.image.url }}" alt="{{ image.caption|default:'Portfolio image' }}"
+                                     onclick="updateMainImage(this.src)">
+                            </div>
+                        {% endfor %}
+                        <div class="thumbnail">
+                            <img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}"
+                                 onclick="updateMainImage(this.src)">
+                        </div>
+                    </div>
+                </div>
+                <div class="main-image">
+                    <img src="{{ portfolio.image.url }}" alt="{{ portfolio.title }}" id="mainImage">
+                </div>
+            </div>
 
-        <!-- Like Button and Comments Count -->
-        <div class="portfolio-stats">
-            <form method="POST" class="like-form">
-                {% csrf_token %}
-                <button class="like-btn" type="submit" name="like" data-liked="{% if user_has_liked %}true{% else %}false{% endif %}">
-                    <i class="fa fa-heart"></i>
-                    <span>{{ portfolio_likes }}</span>
-                </button>
-            </form>
-            <div class="comments-count">
-                <i class="fa fa-comments"></i>
-                <span>{{ comments.count }}</span>
+            <!-- Two Column Layout -->
+            <div class="content-grid">
+                <!-- Left Column -->
+                <div class="content-left">
+                    <div class="section">
+                        <h2>Technologies:</h2>
+                        <div class="tech-list">
+                            {% for tech in portfolio.technologies.all %}
+                                <div class="p-tag">
+                                    <span class="package-bullet">▹</span>
+                                    <code>{{ tech.name }}</code>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Description:</h2>
+                        <div class="p-tag">
+                            <span class="package-bullet">▹</span>
+                            <code>{{ portfolio.description }}</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column -->
+                <div class="content-right">
+                    <div class="section">
+                        <h2>Packages:</h2>
+                        <div class="package-list">
+                            {% for package in portfolio.packages.splitlines %}
+                                {% if package %}
+                                    <div class="p-tag">
+                                        <span class="package-bullet">▹</span>
+                                        <code>{{ package }}</code>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h2>Tags:</h2>
+                        <div class="tag-list">
+                            {% for tag in portfolio.tags.all %}
+                                <div class="p-tag">
+                                    <span class="package-bullet">▹</span>
+                                    <code>#{{ tag.name }}</code>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Links and Date Section -->
+            <div class="bottom-section">
+                <div class="links-wrapper">
+                    {% for link in portfolio_links %}
+                        <a href="{{ link.url }}" target="_blank" class="portfolio-link">
+                            {% if 'github' in link.url|lower %}
+                                <i class="fab fa-github"></i>
+                            {% else %}
+                                <i class="fas fa-globe"></i>
+                            {% endif %}
+                            {{ link.name|default:'Visit' }}
+                        </a>
+                    {% endfor %}
+                </div>
+
+                <div class="date-likes">
+                    <div class="date">
+                        <i class="far fa-calendar"></i>
+                        <code>{{ portfolio.created_at|date:"d-m-Y" }}</code>
+                    </div>
+                    <div class="likes-section">
+                        <form method="POST" class="like-form">
+                            {% csrf_token %}
+                            <input type="hidden" name="like" value="true">
+                            <button type="submit" class="like-button {% if user_has_liked %}liked{% endif %}">
+                                <i class="fas fa-heart"></i>
+                                <span class="like-count">{{ portfolio_likes }}</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comments Section -->
+            <div class="comments-wrapper">
+                <div class="comment-form-section">
+                    <form method="POST" class="comment-form">
+                        {% csrf_token %}
+                        <input type="hidden" name="comment" value="true">
+                        <textarea name="text" placeholder="Write comment here" required></textarea>
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="comments-toggle">
+                    <button class="toggle-comments" onclick="toggleComments()">
+                        <span>Comments</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                </div>
+
+                <div class="comments-container hidden">
+                    {% for comment in comments %}
+                        <div class="comment">
+                            <div class="comment-content">
+                                <div class="comment-text">{{ comment.text }}</div>
+                                <div class="comment-meta">
+                                    <span class="comment-user">by {{ comment.user.username }}</span>
+                                    <span class="comment-date">{{ comment.created_at|date:"F jS Y" }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
-
-    <!-- Comments Section: Always Visible (Yozish joyi) -->
-    <div class="comment-writing">
-        <h3>Write a Comment</h3>
-        <form method="POST">
-            {% csrf_token %}
-            {{ comment_form.as_p }}
-            <button type="submit" class="btn btn-submit" name="comment">Post Comment</button>
-        </form>
-    </div>
-
-    <!-- Comments Section: Toggle visibility of comments -->
-    <div class="comments-section">
-        <h3>Comments</h3>
-        <ul class="hidden">
-            {% if comments %}
-                {% for comment in comments %}
-                <li>
-                    <p>{{ comment.text }}</p>
-                    <small>By <em>{{ comment.user.username }}</em> on {{ comment.created_at|date:"F j, Y, g:i a" }}</small>
-                </li>
-                {% endfor %}
-            {% else %}
-                <li>No comments yet</li>
-            {% endif %}
-        </ul>
-
-        <button class="btn toggle-comments" onclick="toggleComments()">View Comments</button>
-    </div>
-
-</div>
-
-<script>
-    function toggleComments() {
-        const commentsList = document.querySelector('.comments-section ul');
-        commentsList.classList.toggle('hidden');
-    }
-</script>
-
+    {% block extra_js %}
+        <script src="{% static 'js/portfolio_detail.js' %}"></script>
+    {% endblock %}
 {% endblock %}

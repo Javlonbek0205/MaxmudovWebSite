@@ -1,65 +1,150 @@
 {% load static %}
+{% load image_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <!-- Title -->
+    <title>Javlonbek | Personal Portfolio</title>
+
+    <!-- Font-Awesome CSS -->
+    <link rel="stylesheet" href="{% static "assets/vendors/font-awesome/css/all.min.css" %}" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="{% static "assets/vendors/swiper/swiper.css" %}" />
+
+    <!-- Magnific-Popup CSS -->
+    <link rel="stylesheet" href="{% static "assets/vendors/magnific-popup/magnific-popup.css" %}" />
+
+    <!-- Custom Stylesheets -->
+    <link rel="stylesheet"  href="{% static "assets/css/main.css" %}" />
+    <link rel="stylesheet" href="{% static "assets/css/responsive.css" %}" />
+    {% block extra_style %}{% endblock %}
+
 </head>
+<body>
 
-<body>  
-<!-- Navbar -->
-<header>
-    <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white" href="{% url 'home' %}"><strong>Maxmudov Javlonbek</strong></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#portfolio">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Chat</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'blog_list' %}">Blog</a></li>
-                    {% if user.is_authenticated %}
-                        <li class="nav-item">
-                            <form method="post" action="{% url 'logout' %}">
-                                {% csrf_token %}
-                                <button class="btn logout-btn">Logout</button>
-                            </form>
-                        </li>
-                        <li class="nav-item">
-                        <form method="post" action="{% url 'blog_create' %}">
+
+    <!-------------------- Scroll-Top Area (Start) -------------------->
+    <a href="#home" class="scroll-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+    <!-------------------- Scroll-Top Area (End) -------------------->
+
+        
+
+    <!-------------------- Header Area (Start) -------------------->
+    <header class="header">
+
+        <!-- Logo -->
+        <a class="logo" href="{% url 'home' %}#home">
+            <h2> Javlonbek Maxmudov </h2> 
+            <!-- <img src="{% static "assets/images/logo.png" %}" alt="logo" />-->
+        </a>
+        <!-- Logo End -->
+
+        <!-- Navbar -->
+        <nav class="navbar">
+            <a href="{% url 'home' %}#home">home</a>
+            <a href="{% url 'home' %}#about">about</a>
+            <a href="{% url 'home' %}#service">service</a>
+            <a href="{% url 'home' %}#portfolio">portfolio</a>
+{#            <a href="{% url 'home' %}#testimonial">testimonials</a>#}
+            <a href="{% url 'home' %}#blog">blogs</a>
+            <a href="{% url 'home' %}#contact">contact</a>
+            {% if user.is_authenticated %}
+                <a href="#" onclick="document.getElementById('logout-form').submit();">logout</a>
+                <form id="logout-form" action="{% url 'logout' %}" method="post" style="display: none;">
                             {% csrf_token %}
-                            <button class="btn follow-btn">Post</button>
                         </form>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <form action="{% url 'signup' %}" method="get">
-                            <button class="btn follow-btn">Follow</button>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <form action="{% url 'login' %}" method="get">
-                            <button class="btn login-btn">Login</button>
-                        </form>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+                {% else %}
+                <a href="{% url 'login' %}">login</a>
+                <a href="{% url 'register' %}">register</a>
+            {% endif %} 
+        </nav>
 
-<main>
+        <!-- Menubar -->
+        <div class="fas fa-bars" id="menu-btn"></div>
+        
+    </header>
+    <!-------------------- Header Area (End) -------------------->
+    
     {% block content %}
     {% endblock content %}
-</main>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-------------------- Footer Area (Start) -------------------->
+    <footer>
+        <div class="social">
+            <a href="https://t.me/@JavlonbekDeveloper/" target="_blank" class="fab fa-telegram"></a>
+            <a href="https://github.com/Javlonbek0205/" target="_blank" class="fab fa-github"></a>
+            <a href="https://www.linkedin.com/in/javlonbek-maxmudov-a346882ab/" target="_blank" class="fab fa-linkedin-in"></a>
+        </div>
+
+        <div class="content">
+            <p>created by <span>AS_Designs</span> | all rights reserved</p>
+        </div>
+    </footer>
+    <!-------------------- Footer Area (End) -------------------->
+
+
+
+    <!-- JQuery -->
+    <script src="{% static "assets/vendors/jquery/jquery-3.6.0.js" %}"></script>
+
+    <!-- SWIPER JS -->
+    <script src="{% static "assets/vendors/swiper/swiper.js" %}"></script>
+
+    <!-- Magnific-Popup JS -->
+    <script src="{% static "assets/vendors/magnific-popup/jquery.magnific-popup.js" %}"></script>
+
+    <!-- Typed JS -->
+    <script src="{% static "assets/vendors/typed/typed.js" %}"></script>
+
+    <!-- Custom Script File -->
+    <script src="{% static "assets/js/script.js" %}"></script>
+    <script src="{% static "assets/js/scroll-spy.js" %}"></script>
+    <script src="{% static "assets/js/counter-up.js" %}"></script>
+    <script src="{% static "assets/js/portfolio.js" %}"></script>
+    <script src="{% static "assets/js/testi-slider.js" %}"></script>
+    <script src="{% static "assets/js/blog-slider.js" %}"></script>
+
+    <!---------------- Custom Script ---------------->
+
+    <!-- Typed Script -->
+    <script>
+        var typed = new Typed('.typing-text', {
+
+            strings: ['Web developer',],
+            typeSpeed: 120,
+            loop: true
+        });
+    </script>
+
+    <!-- Contact-Form Script -->
+    <script>
+        jQuery('#contactUs-Form').on('submit',function(e){
+          jQuery('#msg').html('');
+          jQuery('#submit').html('Please wait');
+          jQuery('#submit').attr('disabled',true);
+          jQuery.ajax({
+              url:'{% static "assets/php/submit.php" %}',
+              type:'post',
+              data:jQuery('#contactUs-Form').serialize(),
+              success:function(result){
+                  jQuery('#msg').html(result);
+                  jQuery('#submit').html('Submit');
+                  jQuery('#submit').attr('disabled',false);
+                  jQuery('#contactUs-Form')[0].reset();
+              }
+          });
+          e.preventDefault();
+        });
+    </script>
+    {% block extra_js %}
+    {% endblock %}
 </body>
+</html>

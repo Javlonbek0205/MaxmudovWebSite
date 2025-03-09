@@ -1,0 +1,596 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load image_tags %}
+{% block content %}
+
+    <!-------------------- Home Area (Start) -------------------->
+    <section class="home" id="home">
+
+        <div class="box-container">
+
+            <div class="content">
+                <div class="text">
+                    <h2>hi there!</h2>
+                    <h1>I Am a <span class="typing-text"></span></h1>
+                    <p>Dedicated backend developer skilled in Python and Django, focused on delivering efficient and
+                        scalable web solutions.</p>
+                    <a href="#about" class="btn">about me <i class="fas fa-user"></i></a>
+                </div>
+            </div>
+
+            <div class="image">
+                <img src="{% static "assets/images/About/photo_2024-10-10_13-30-02.jpg" %}" alt="Home-Image">
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-------------------- Home Area (End) -------------------->
+
+
+
+    <!-------------------- About Area (Start) -------------------->
+    <section class="about" id="about">
+
+        <div class="box-container">
+
+            <div class="image">
+                <img src="{% static "assets/images/About/photo_2025-02-07_03-42-45.jpg" %}" alt="About-Image"/>
+            </div>
+
+            <div class="content">
+
+                <h2>Hi I'm Javlonbek.</h2>
+                <p>I am a passionate backend developer with a focus on creating efficient, scalable, and secure web
+                    applications. I specialize in Python, Django, and Flask, with experience in API development,
+                    database management, and problem-solving. Currently, I am expanding my skills to become a full-stack
+                    developer, learning frontend technologies like HTML, CSS, JavaScript, and React.js.
+                    I enjoy tackling complex challenges and am always looking to learn and improve. With a strong
+                    foundation in algorithms and a keen interest in AI, I am excited to contribute to innovative
+                    projects that push the boundaries of technology.</p>
+                <div class="about-info">
+
+                    <div class="info">
+                        <h4>age: <span>19</span></h4>
+                        <h4>gender: <span>male</span></h4>
+                        <h4>language: <span>Uzbek, English</span></h4>
+                        <h4>work: <span>Back-End developer</span></h4>
+                        <h4>freelance: <span>available</span></h4>
+                        <h4 class="followers"><strong>Followers: {{ user_count }} ⭐</strong></h4>
+                        <a href="https://www.canva.com/design/DAGfomHrOcw/rxRvzE65ExFWzPQ3fW3txQ/view?utm_content=DAGfomHrOcw&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h87d28c0bf8"
+                           class="btn" target="_blank">download RESUME <i class="fas fa-download"></i></a>
+                    </div>
+
+                    <div class="counting">
+
+                        <div class="box">
+                            <h1 class="count" data-count="3">3+</h1>
+                            <h3>months of experience</h3>
+                        </div>
+
+                        <div class="box">
+                            <h1 class="count" data-count="10">10+</h1>
+                            <h3>projects completed</h3>
+                        </div>
+
+                        {#                        <div class="box">#}
+                        {#                            <h1 class="count" data-count="80">80+</h1>#}
+                        {#                            <h3>happy clients</h3>#}
+                        {#                        </div>#}
+
+                        {#                        <div class="box">#}
+                        {#                            <h1 class="count" data-count="20">20+</h1>#}
+                        {#                            <h3>awards won</h3>#}
+                        {#                        </div>#}
+                        {#                    #}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="skill-container">
+
+            <div class="heading">
+                <h2>my <span>skills</span></h2>
+            </div>
+
+            <div class="skills">
+                <div class="skill-item item1">
+                    <div class="box">
+                        <h3>HTML5<span> 75% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+                    <div class="box">
+                        <h3>CSS3<span> 65% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+                    <div class="box">
+                        <h3>javascript<span> 30% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+
+                    <div class="box">
+                        <h3>Bootstrap<span> 65% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+                </div>
+
+                <div class="skill-item item2">
+                    <div class="box">
+                        <h3>Python<span> 88% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+
+                    <div class="box">
+                        <h3>Django<span> 90% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+                    <div class="box">
+                        <h3>FastAPI<span> 70% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+                    <div class="box">
+                        <h3>Django-Rest-Framework<span> 90% </span></h3>
+                        <div class="progress-bar"><span></span></div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+    <!-------------------- About Area (End) -------------------->
+
+
+
+    <!-------------------- Qualification Area (Start) -------------------->
+    <section class="qualification">
+
+        <div class="heading">
+            <h2>my <span>qualification</span></h2>
+        </div>
+
+        <div class="box-container">
+
+            <div class="education">
+
+                <div class="experience-item">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="content">
+                        <span>2024 - 2025</span>
+                        <h3>Technical Skills & Expertise</h3>
+                        <p>Experienced Backend Developer specializing in Python, Django, and FastAPI. Skilled in
+                            PostgreSQL, RESTful APIs, and database optimization. Strong knowledge of Ubuntu server
+                            management, Git, and testing. Passionate about problem-solving, clean code, and continuous
+                            learning.</p>
+                    </div>
+                </div>
+
+                {#                <div class="experience-item">#}
+                {#                    <i class="fas fa-graduation-cap"></i>#}
+                {#                    <div class="content">#}
+                {#                        <span>2016 - 2017</span>#}
+                {#                        <h3>engineering</h3>#}
+                {#                        <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.#}
+                {#                            Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores#}
+                {#                            Ipsa? Error, Debitis Ullam.</p>#}
+                {#                    </div>#}
+                {#                </div>#}
+
+                {#                <div class="experience-item">#}
+                {#                    <i class="fas fa-graduation-cap"></i>#}
+                {#                    <div class="content">#}
+                {#                        <span>0000 - 0000</span>#}
+                {#                        <h3>🚧 In progress</h3>#}
+                {#                        <p>I'm working on this section. I'll keep adding to it with my new experiences.</p>#}
+                {#                    </div>#}
+                {#                </div>#}
+
+            </div>
+
+            <div class="experience">
+
+                {#                <div class="experience-item">#}
+                {#                    <i class="fas fa-briefcase"></i>#}
+                {#                    <div class="content">#}
+                {#                        <span>2018 - 2019</span>#}
+                {#                        <h3>front-end development</h3>#}
+                {#                        <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.#}
+                {#                            Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores#}
+                {#                            Ipsa? Error, Debitis Ullam.</p>#}
+                {#                    </div>#}
+                {#                </div>#}
+                {##}
+                {#                <div class="experience-item">#}
+                {#                    <i class="fas fa-briefcase"></i>#}
+                {#                    <div class="content">#}
+                {#                        <span>2019 - 2020</span>#}
+                {#                        <h3>front-end development</h3>#}
+                {#                        <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit.#}
+                {#                            Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores#}
+                {#                            Ipsa? Error, Debitis Ullam.</p>#}
+                {#                    </div>#}
+                {#                </div>#}
+
+
+                <div class="experience-item">
+                    <i class="fas fa-briefcase"></i>
+                    <div class="content">
+                        <span>2025 - {----}</span>
+                        <h3>🚧 In progress</h3>
+                        <p>I'm working on this section. I'll keep adding to it with my new experiences.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-------------------- Qualification Area (End) -------------------->
+
+
+
+    <!-------------------- Services Area (Start) -------------------->
+    <section class="service" id="service">
+
+        <div class="heading">
+            <h2>my <span>services</span></h2>
+        </div>
+
+        <div class="box-container">
+
+            <div class="service-item">
+                <i class="fas fa-code"></i>
+                <h3>Backend Development</h3>
+                <p>Scalable and secure APIs using Django & FastAPI.</p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-database"></i>
+                <h3>Database Design & Optimization</h3>
+                <p>Efficient PostgreSQL solutions</p>
+            </div>
+
+            <div class="service-item">
+                <i class="fas fa-file-code"></i>
+                <h3>RESTful API Development</h3>
+                <p>High-performance API architecture</p>
+            </div>
+
+{#            <div class="service-item">#}
+{#                <i class="fas fa-bullhorn"></i>#}
+{#                <h3>digital marketing</h3>#}
+{#                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.#}
+{#                    Ex repellendus porro facilis.</p>#}
+{#            </div>#}
+
+{#            <div class="service-item">#}
+{#                <i class="far fa-file-video"></i>#}
+{#                <h3>video editing</h3>#}
+{#                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.#}
+{#                    Ex repellendus porro facilis.</p>#}
+{#            </div>#}
+
+            <div class="service-item">
+                <i class="fas fa-server"></i>
+                <h3>Server Management</h3>
+                <p>Ubuntu & deployment optimization</p>
+            </div>
+
+        </div>
+
+    </section>
+    <!-------------------- Services Area (End) -------------------->
+
+
+
+    <!-------------------- Portfolio Area (Start) -------------------->
+    <section class="portfolio" id="portfolio">
+
+        <div class="heading">
+            <h2>my <span>portfolio</span></h2>
+        </div>
+
+        <div class="gallery">
+
+            <ul class="controls">
+                <li class="button btn active" data-filter="all">all</li>
+            </ul>
+
+            <div class="box-container">
+                {% for portfolio in portfolios %}
+                    <div class="portfolio-item image {{ portfolio.category }}">
+                        <img src="{{ portfolio.image.url }}" alt="Portfolio-Image"/>
+                        <div class="content">
+                            <h4>{{ portfolio.title }}</h4>
+                            <div style="display: flex">
+                                <span style="margin-right: 8px;"><p><i
+                                        class="fa fa-heart"></i> {{ portfolio.total_likes }} </p></span>
+                                <span><p><i class="fa fa-comments"></i> {{ portfolio.total_comments }} </p></span>
+                            </div>
+                            <a
+                                    data-effect="mfp-newspaper"
+                                    href="{{ portfolio.image.url }}"
+                                    class="view-btn portfolio-gallery"
+                                    data-portfolio-id="{{ portfolio.id }}">
+                                <i class="fas fa-search-plus"></i>
+                            </a>
+                            <a href="{% url 'details_portfolio' portfolio.pk %}" class="btn">read more <i
+                                    class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Hidden Galereya -->
+            <div id="portfolio-galleries" style="display: none;">
+                {% for portfolio in portfolios %}
+                    <div class="portfolio-gallery-images" id="gallery-{{ portfolio.id }}">
+                        {% portfolio_image portfolio as images %}
+                        {% for image in images %}
+                            <a href="{{ image.image.url }}" title="{{ portfolio.title }}">
+                                <img src="{{ image.image.url }}" alt="Portfolio Image">
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+
+
+        </div>
+
+    </section>
+    <!-------------------- Portfolio Area (End) -------------------->
+
+
+
+    <!-------------------- Testimonials Area (Start) -------------------->
+{#    <section class="testimonial" id="testimonial">#}
+{##}
+{#        <div class="heading">#}
+{#            <h2><span>testimonials</span></h2>#}
+{#        </div>#}
+{##}
+{#        <div class="swiper-container testimonial-slider">#}
+{#            <div class="swiper-wrapper">#}
+{##}
+{#                <div class="swiper-slide testi-item">#}
+{#                    <img src="{% static "assets/images/Testimonials/pic-1.png" %}" alt="Testimonial-Pic"/>#}
+{##}
+{#                    <i class="fas fa-quote-left"></i>#}
+{##}
+{#                    <p class="comment">#}
+{#                        Lorem ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                        Voluptatum deleniti architecto harum natus aliquid nostrum#}
+{#                        ad asperiores sequi, eligendi sint assumenda eum illo similique#}
+{#                        repellendus.#}
+{#                    </p>#}
+{##}
+{#                    <div class="intro">#}
+{#                        <h3>jason roy</h3>#}
+{#                        <h5>web developer</h5>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="swiper-slide testi-item">#}
+{#                    <img src="{% static "assets/images/Testimonials/pic-2.png" %}" alt="Testimonial-Pic"/>#}
+{##}
+{#                    <i class="fas fa-quote-left"></i>#}
+{##}
+{#                    <p class="comment">#}
+{#                        Lorem ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                        Voluptatum deleniti architecto harum natus aliquid nostrum#}
+{#                        ad asperiores sequi, eligendi sint assumenda eum illo similique#}
+{#                        repellendus.#}
+{#                    </p>#}
+{##}
+{#                    <div class="intro">#}
+{#                        <h3>evelyn jones</h3>#}
+{#                        <h5>freelancer</h5>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="swiper-slide testi-item">#}
+{#                    <img src="{% static "assets/images/Testimonials/pic-3.png" %}" alt="Testimonial-Pic"/>#}
+{##}
+{#                    <i class="fas fa-quote-left"></i>#}
+{##}
+{#                    <p class="comment">#}
+{#                        Lorem ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                        Voluptatum deleniti architecto harum natus aliquid nostrum#}
+{#                        ad asperiores sequi, eligendi sint assumenda eum illo similique#}
+{#                        repellendus.#}
+{#                    </p>#}
+{##}
+{#                    <div class="intro">#}
+{#                        <h3>luke wood</h3>#}
+{#                        <h5>graphic designer</h5>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="swiper-slide testi-item">#}
+{#                    <img src="{% static "assets/images/Testimonials/pic-4.png" %}" alt="Testimonial-Pic"/>#}
+{##}
+{#                    <i class="fas fa-quote-left"></i>#}
+{##}
+{#                    <p class="comment">#}
+{#                        Lorem ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                        Voluptatum deleniti architecto harum natus aliquid nostrum#}
+{#                        ad asperiores sequi, eligendi sint assumenda eum illo similique#}
+{#                        repellendus.#}
+{#                    </p>#}
+{##}
+{#                    <div class="intro">#}
+{#                        <h3>sarah glenn</h3>#}
+{#                        <h5>freelancer</h5>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#                <div class="swiper-slide testi-item">#}
+{#                    <img src="{% static "assets/images/Testimonials/pic-5.png" %}" alt="Testimonial-Pic"/>#}
+{##}
+{#                    <i class="fas fa-quote-left"></i>#}
+{##}
+{#                    <p class="comment">#}
+{#                        Lorem ipsum dolor sit amet consectetur adipisicing elit.#}
+{#                        Voluptatum deleniti architecto harum natus aliquid nostrum#}
+{#                        ad asperiores sequi, eligendi sint assumenda eum illo similique#}
+{#                        repellendus.#}
+{#                    </p>#}
+{##}
+{#                    <div class="intro">#}
+{#                        <h3>samit patel</h3>#}
+{#                        <h5>graphic designer</h5>#}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{##}
+{#            <div class="swiper-pagination swiper-pagination1"></div>#}
+{##}
+{#        </div>#}
+{#    </section>#}
+    <!-------------------- Testimonials Area (End) -------------------->
+
+
+
+    <!-------------------- Blog Area (Start) -------------------->
+    <section class="blog" id="blog">
+
+        <div class="heading">
+            <h2>my <span>blog</span></h2>
+        </div>
+
+        <div class="swiper-container blog-slider">
+            <div class="swiper-wrapper">
+{#                {% for article in articles %}#}
+{#                    <div class="swiper-slide blog-item">#}
+{#                        <div class="image">#}
+{#                            <img src="{{ article.image.url }}" alt="Blog-Image"/>#}
+{#                        </div>#}
+{#                        <div class="content">#}
+{#                            <div class="intro">#}
+{#                                <h5><i class="fas fa-calendar-alt"></i><span>{{ article.created_at }}</span></h5>#}
+{#                                <h5><i class="fas fa-user"></i><span>by {{ article.author }}</span></h5>#}
+{#                            </div>#}
+{#                            <a class="main-heading" href="#">{{ article.title }}</a>#}
+{#                            <p>#}
+{#                                {{ article.body | truncatewords:15 }}#}
+{#                            </p>#}
+{#                            <a href="#" class="btn">read more <i class="fas fa-arrow-right"></i></a>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+                <div class="swiper-slide blog-item">
+                        <div class="image">
+                            <img src="{% static 'assets/images/Blogs/blog-1.png' %}" alt="Blog-Image"/>
+                        </div>
+                        <div class="content">
+                            <div class="intro">
+                                <h5><i class="fas fa-calendar-alt"></i><span>2025-02-27</span></h5>
+                                <h5><i class="fas fa-user"></i><span>by Admin</span></h5>
+                            </div>
+                            <a class="main-heading" href="#">🚧 In progress</a>
+                            <p>
+                                I'm working on this section. I'll keep adding to it with my new experiences
+                            </p>
+                            <a href="#" class="btn">read more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="swiper-pagination swiper-pagination2"></div>
+
+        </div>
+
+    </section>
+    <!-------------------- Blog Area (End) -------------------->
+
+
+
+    <!-------------------- Contact Area (Start) -------------------->
+    <section class="contact" id="contact">
+
+        <div class="heading">
+            <h2><span>contact</span> me</h2>
+        </div>
+
+        <div class="box-container">
+
+            <div class="contact-info">
+
+                <h3>You can contact me.</h3>
+
+                <p>You can apply from 8:00 to 23:00</p>
+
+                <div class="info-item">
+                    <h4>Phone:</h4>
+                    <div class="detail">
+                        <div class="fas fa-phone"></div>
+                        <p>+998902098908</p>
+                    </div>
+                    <div class="detail">
+                        <div class="fas fa-phone"></div>
+                        <p>+998777127752</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h4>email:</h4>
+                    <div class="detail">
+                        <div class="fas fa-envelope"></div>
+                        <p class="gmail">javlonbekdeveloper7@gmail.com</p>
+                    </div>
+                    <div class="detail">
+                        <div class="fas fa-envelope"></div>
+                        <p class="gmail">javlonbekmaxmudov8384@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h4>linkedin:</h4>
+                    <div class="detail">
+                        <div class="fab fa-linkedin"></div>
+                        <p class="linkedin"><a href="https://www.linkedin.com/in/javlonbek-maxmudov-a346882ab/" target="_blank">Javlonbek Maxmudov</a></p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <h4>github:</h4>
+                    <div class="detail">
+                        <div class="fab fa-github"></div>
+                        <p class="github"><a href="https://github.com/Javlonbek0205" target="_blank">Javlonbek0205</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <form method="POST" class="contact-form" action="{{ protocol }}{{ domain }}#contact">{% csrf_token %}
+                
+                <input type="text" name="name" class="box"  placeholder="name" required/>
+                <input type="email" name="email" class="box" placeholder="email" required/>
+                <textarea cols="30" rows="10" name="message" class="box" placeholder="message"></textarea>
+                <button type="submit" class="btn"  id="submit">send message</button>
+
+                
+                {% if messages %}
+                    {% for message in messages %}
+                      <span class="alert" id="msg">{{ message }}</span>
+                    {% endfor %}
+                {% endif %}
+            </form>
+
+        </div>
+
+    </section>
+    <!-------------------- Contact Area (End) -------------------->
+{% endblock %}
+
+
+
+

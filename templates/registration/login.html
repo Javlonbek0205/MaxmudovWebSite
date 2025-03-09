@@ -1,35 +1,38 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Login Form</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
-</head>
-<body>
-  <div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-  </div>
-  <form method="post">
-    {% csrf_token %}
-    <h3>Login Here<br>Click <a href="{% url 'signup' %}">follow</a> to use additional features</h3>
-    {{ form.as_p }}
-    <button type="submit">Log In</button>
-    <div class="social">
-      <div class="back">
-        <a href="{% url 'home' %}">
-          <i class="fas fa-arrow-left"></i> Back
-        </a>
-      </div>
-      <div class="follow">
-        <a href="{% url 'signup' %}">
-          <i class="fas fa-user-plus"></i> Follow
-        </a>
-      </div>
+{% block content %}
+    {% block extra_style %}
+        <link rel="stylesheet" href="{% static 'css/auth_accounts.css' %}">
+    {% endblock %}
+<div class="auth-container">
+    <div class="auth-form">
+        <h1>USER LOGIN</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <i class="user-icon"></i>
+                <input type="text" name="username" placeholder="Email ID" required>
+            </div>
+            <div class="form-group">
+                <i class="lock-icon"></i>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            {% if form.errors.password.0   %}
+                            <div class="invalid-feedback">
+                                {{ form.errors.password.0 }}
+                            </div>
+            {% endif %}
+            {% if form.non_field_errors.0 %}
+                            <div class="invalid-feedback">
+                                {{ form.non_field_errors.0 }}
+                            </div>
+            {% endif %}
+            <div class="form-options">
+                <a href="{% url 'password_reset' %}" class="forgot-password">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login-btn">LOGIN</button>
+        </form>
+        <a href="{% url 'register' %}" class="register-btn">REGISTER</a>
     </div>
-  </form>
-</body>
-</html>
+</div>
+{% endblock %}

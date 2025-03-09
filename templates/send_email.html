@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ subject }}</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        .email-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .email-header {
+            background: linear-gradient(to right, #003366, #7697c1, #400d0d);
+            color: white;
+            padding: 20px;  
+            text-align: center;
+        }
+        .email-content {
+            padding: 20px;
+            line-height: 1.6;
+            color: #333333;
+        }
+        .email-footer {
+            background-color: #f1f1f1;
+            text-align: center;
+            padding: 10px;
+            font-size: 12px;
+            color: #888888;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(to right, #d7dfe6, #590909, #cd7815);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Siga, {{ latest_user }}dan habar bor!</h1>
+        </div>
+        <div class="email-content">
+            <p>{{ message }}</p>
+            <a href="http://127.0.0.1:8000/admin/" class="button" style="color: white">GitHub</a>
+        </div>
+        <div class="email-footer">
+            <p>Kuningiz hayrli bo'lsin!</p>
+        </div>
+    </div>
+</body>
+</html>

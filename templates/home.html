@@ -10,7 +10,53 @@
     {% else %}
         <p>Welcome to my website, dear User!</p>
     {% endif %}
+    
+    <section class="about py-5" id="about">
+    <h2 class="text-center">About</h2>
+    <div class="container text-center">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-7">
+                <!-- About Card -->
+                <div class="about-card">
+                    <div class="about-row">
+                        <!-- Profile Image (Left side) -->
+                        <div class="about-image">
+                            <img src="{% static 'img/photo_2024-10-10_13-30-02.jpg' %}" alt="Profile Picture"
+                                 class="img-fluid rounded-circle">
+                        </div>
+
+                        <!-- About Content (Right side) -->
+                        <div class="about-content">
+                            <p class="about-text">
+                                About Me <br>
+I am a passionate backend developer with a focus on creating efficient, scalable, and secure web applications. I specialize in Python, Django, and Flask, with experience in API development, database management, and problem-solving. Currently, I am expanding my skills to become a full-stack developer, learning frontend technologies like HTML, CSS, JavaScript, and React.js.
+I enjoy tackling complex challenges and am always looking to learn and improve. With a strong foundation in algorithms and a keen interest in AI, I am excited to contribute to innovative projects that push the boundaries of technology.
+                            </p>
+                            <p class="followers"><strong>Followers: {{ user_count }} ⭐</strong></p>
+                            <div class="rating">
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                                <span>★</span>
+                            </div>
+                            <!-- Social Media Icons -->
+                            <div class="social-icons">
+                                <a href="https://t.me/yourprofile" target="_blank" class="social-icon"><i
+                                        class="fab fa-telegram-plane"></i></a>
+                                <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon"><i
+                                        class="fab fa-instagram"></i></a>
+                                <a href="https://www.youtube.com/c/yourchannel" target="_blank" class="social-icon"><i
+                                        class="fab fa-youtube"></i></a>
+                                <a href="https://github.com/yourprofile" target="_blank" class="social-icon"><i
+                                        class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 </section>
+</section>
+
 
 <!-- Carousel Section -->
     <section id="portfolio">
@@ -78,52 +124,7 @@
 </section>
 <!-- About Section -->
 <!-- About Section with Card and Icons -->
-<section class="about py-5" id="about">
-    <h2 class="text-center">About</h2>
-    <div class="container text-center">
-        <div class="row justify-content-center align-items-center">
-            <div class="col-md-7">
-                <!-- About Card -->
-                <div class="about-card">
-                    <div class="about-row">
-                        <!-- Profile Image (Left side) -->
-                        <div class="about-image">
-                            <img src="{% static 'img/photo_2024-10-10_13-30-02.jpg' %}" alt="Profile Picture"
-                                 class="img-fluid rounded-circle">
-                        </div>
 
-                        <!-- About Content (Right side) -->
-                        <div class="about-content">
-                            <p class="about-text">
-                                About Me <br>
-I am a passionate backend developer with a focus on creating efficient, scalable, and secure web applications. I specialize in Python, Django, and Flask, with experience in API development, database management, and problem-solving. Currently, I am expanding my skills to become a full-stack developer, learning frontend technologies like HTML, CSS, JavaScript, and React.js.
-I enjoy tackling complex challenges and am always looking to learn and improve. With a strong foundation in algorithms and a keen interest in AI, I am excited to contribute to innovative projects that push the boundaries of technology.
-                            </p>
-                            <p class="followers"><strong>Followers: {{ user_count }} ⭐</strong></p>
-                            <div class="rating">
-                                <span>★</span>
-                                <span>★</span>
-                                <span>★</span>
-                                <span>★</span>
-                                <span>★</span>
-                            </div>
-
-
-                            <!-- Social Media Icons -->
-                            <div class="social-icons">
-                                <a href="https://t.me/yourprofile" target="_blank" class="social-icon"><i
-                                        class="fab fa-telegram-plane"></i></a>
-                                <a href="https://www.instagram.com/yourprofile" target="_blank" class="social-icon"><i
-                                        class="fab fa-instagram"></i></a>
-                                <a href="https://www.youtube.com/c/yourchannel" target="_blank" class="social-icon"><i
-                                        class="fab fa-youtube"></i></a>
-                                <a href="https://github.com/yourprofile" target="_blank" class="social-icon"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-</section>
     
     
     <!--Article section-->
